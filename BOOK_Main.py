@@ -7,9 +7,10 @@
 # Remember == for comparison , = for assigning
 class BOOK():
 
-    def __init__(self, ISBN, Title, Author, datePublished, readingStatus, bookFormat, location):
-        self.ISBN = ISBN
+    def __init__(self, Title, Author, ISBNnum=None, datePublished=None, readingStatus=None, bookFormat=None, location=None):
+        self.ISBN = ISBNnum
         self.Title = Title
+        self.Author = Author
         self.datePublished = datePublished
         self.readingStatus = readingStatus
         self.bookFormat = bookFormat
@@ -18,8 +19,8 @@ class BOOK():
     def getISBN(self): # Getting the ISBN // OPTIONAL FOR USER
         return self.ISBN
     
-    def setISBN(self, ISBN): # Setting the ISBN // OPTIONAL FOR USER
-        self.ISBN = ISBN
+    def setISBN(self, ISBNnum): # Setting the ISBN // OPTIONAL FOR USER
+        self.ISBN = ISBNnum
     
     def getTitle(self): # Getting Title
         return self.Title
@@ -56,3 +57,7 @@ class BOOK():
     
     def setlocation(self, location): # Setting location // OPTIONAL FOR USER
         self.location = location
+
+
+book1 = BOOK("The Adventures of Huckleberry Finn","Mark Twain")
+print (book1( ))
