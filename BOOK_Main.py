@@ -9,8 +9,8 @@ class book():
 
     def __init__(self, Title, Author, ISBNnum=None, datePublished=None, readingStatus=None, bookFormat=None, location=None):
         self.ISBNnum = ISBNnum
-        self.Title = "Title"
-        self.Author = "Author"
+        self.Title = Title
+        self.Author = Author
         self.datePublished = datePublished
         self.readingStatus = readingStatus
         self.bookFormat = bookFormat
@@ -62,7 +62,7 @@ class book():
             return f"Title: {self.Title} \nAuthor: {self.Author} \nISBN: {self.ISBNnum} \nLocation: {self.location}\nBook Format: {self.bookFormat}\nReading Status: {self.readingStatus}\nDate Published: {self.datePublished}\n"
 
 firstbook = book("The Adventures of Huckleberry Finn","Mark Twain")
-firstbook(book.setAuthor = "Mark Twain")
-firstbook(book.setTitle = "The Adventures of Huckleberry Finn")
+firstbook.setAuthor = 'Mark Twain'
+firstbook.setTitle = 'The Adventures of Huckleberry Finn'
 
-print (firstbook)
+print(firstbook)
