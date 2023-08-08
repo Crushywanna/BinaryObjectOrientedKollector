@@ -4,8 +4,8 @@
 
 
 
-# Remember == for comparison , = for assigning
-class BOOK():
+# Remember!  == for comparison , = for assigning
+class book():
 
     def __init__(self, Title, Author, ISBNnum=None, datePublished=None, readingStatus=None, bookFormat=None, location=None):
         self.ISBN = ISBNnum
@@ -59,5 +59,5 @@ class BOOK():
         self.location = location
 
 
-book1 = BOOK("The Adventures of Huckleberry Finn","Mark Twain")
-print (book1( ))
+firstbook = book("The Adventures of Huckleberry Finn","Mark Twain")
+print (firstbook())
