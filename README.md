@@ -8,3 +8,7 @@ A search function will need to be implemented
 
 
 After the initial backend draft is accomplished, I wouldn't mind looking for an amateur frontend developer to devise a GUI or other UX intended for generic users.
+
+Eventual TODOs:
+1) Add a prompt asking the user what they want
+2) A way to close the program without having to close the IDE or other interactions (similar to a "press Q to quit" function"
