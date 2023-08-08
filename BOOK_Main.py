@@ -2,25 +2,23 @@
 #Created for a Rutgers University MBS Final
 
 import csv
+# https://www.pythontutorial.net/python-basics/python-write-csv-file/
+header = ['Title','Author','Reading Status','Book Format','Location']
+#testdata = ["The Adventures of Huckleberry Finn","Mark Twain","Completed","Digital","Kindle"]
 
 
 # Remember!  == for comparison , = for assigning
 class book():
+    _totalBook = [] # Got this from: https://stackoverflow.com/questions/739882/iterating-over-object-instances-of-a-given-class-in-python
 
-    def __init__(self, Title, Author, ISBNnum=None, datePublished=None, readingStatus=None, bookFormat=None, location=None):
-        self.ISBNnum = ISBNnum
+    def __init__(self, Title, Author, datePublished=None, readingStatus=None, bookFormat=None, location=None):
         self.Title = Title
         self.Author = Author
         self.datePublished = datePublished
         self.readingStatus = readingStatus
         self.bookFormat = bookFormat
         self.location = location
-
-    def getISBN(self): # Getting the ISBN // OPTIONAL FOR USER
-        return self.ISBNnum
-    
-    def setISBN(self, ISBNnum): # Setting the ISBN // OPTIONAL FOR USER
-        self.ISBNnum = ISBNnum
+        self._totalBook.append(self)
     
     def getTitle(self): # Getting Title
         return self.Title
@@ -59,10 +57,20 @@ class book():
         self.location = location
 
     def __str__(self): # self printer
-            return f"Title: {self.Title} \nAuthor: {self.Author} \nISBN: {self.ISBNnum} \nLocation: {self.location}\nBook Format: {self.bookFormat}\nReading Status: {self.readingStatus}\nDate Published: {self.datePublished}\n"
+            return f"Title: {self.Title} \nAuthor: {self.Author} \nLocation: {self.location}\nBook Format: {self.bookFormat}\nReading Status: {self.readingStatus}\nDate Published: {self.datePublished}\n"
 
 firstbook = book("The Adventures of Huckleberry Finn","Mark Twain")
 firstbook.setAuthor = 'Mark Twain'
 firstbook.setTitle = 'The Adventures of Huckleberry Finn'
+secondbook = book("Pride and Prejudice","Jane Austen")
+secondbook.setAuthor = 'Jane Austen'
+secondbook.setTitle = 'Pride and Prejudice'
 
-print(firstbook)
+with open("Saved_BOOK.csv", 'w', encoding='UTF8', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(header)
+
+for i in book._totalBook:
+    print(i)
+#for i in firstbook:
+    #writer.writerows(i)    
