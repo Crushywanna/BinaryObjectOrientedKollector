@@ -58,6 +58,10 @@ class book():
 
     def __str__(self): # self printer
             return f"Title: {self.Title} \nAuthor: {self.Author} \nLocation: {self.location}\nBook Format: {self.bookFormat}\nReading Status: {self.readingStatus}\nDate Published: {self.datePublished}\n"
+    
+    def __iter__(self):
+        for i in self._totalBook:
+            yield i
 
 firstbook = book("The Adventures of Huckleberry Finn","Mark Twain")
 firstbook.setAuthor = 'Mark Twain'
@@ -66,11 +70,22 @@ secondbook = book("Pride and Prejudice","Jane Austen")
 secondbook.setAuthor = 'Jane Austen'
 secondbook.setTitle = 'Pride and Prejudice'
 
+# Open a CSV file for writing
 with open("Saved_BOOK.csv", 'w', encoding='UTF8', newline='') as f:
-    writer = csv.writer(f)
-    writer.writerow(header)
+    bookFields = ['Title', 'Author', 'Reading Status', 'Book Format', 'Location']
+    writer = csv.DictWriter(f, fieldnames=bookFields)
+    writer.writeheader()
 
+    # Write data to the CSV file
+    for i in book._totalBook:
+        writer.writerow({
+            'Title': i.Title,
+            'Author': i.Author,
+            'Reading Status': i.readingStatus,
+            'Book Format': i.bookFormat,
+            'Location': i.location
+        })
+
+# Print the book information
 for i in book._totalBook:
     print(i)
-#for i in firstbook:
-    #writer.writerows(i)    
