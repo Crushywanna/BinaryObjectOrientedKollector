@@ -10,12 +10,18 @@ A search function will need to be implemented
 After the initial backend draft is accomplished, I wouldn't mind looking for an amateur frontend developer to devise a GUI or other UX intended for generic users.
 
 Assignment TODOs:
-ACCOMPLISHED.             1) Assign each book to an array
-                                Need to print each array out into a table that can be iterated into the writerows command.
-ACCOMPLISHED.             2) Populate to 10k arrays
+
+ACCOMPLISHED. 1) Assign each book to an array
+                    Need to print each array out into a table that can be iterated into the writerows command.
+ACCOMPLISHED. 2) Populate to 10k arrays
 ACCOMPLISHED USING FAKER. 3) export each array to a row in an excel doc, where the columns are the function names (Title, Author, etc.)
 
 
 Eventual TODOs:
 1) Add a prompt asking the user what they want
-2) A way to close the program without having to close the IDE or other interactions (similar to a "press Q to quit" function"
+   NAILED IT. After looking at several of the examples provided by Professor Sorensen, I went through my assignments from undergrad and found one that implemented a question tree for user input.
+     Ripped my tree straight from there.
+3) A way to close the program without having to close the IDE or other interactions (similar to a "press Q to quit" function"
+     Same as above, really.
+
+Several TODOs left in the program itself. I need to clean those up as well, but not really required for the Final Requirements.
