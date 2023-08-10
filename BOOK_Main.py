@@ -1,6 +1,10 @@
 # Leaving room for the imports and any other comments
 #Created for a Rutgers University MBS Final
 
+
+# Shoutout to Sukhmeet Khalar (https://github.com/mithusingh32) for this idea. Way easier than randomly giving names to the books.
+from faker import Faker# https://faker.readthedocs.io/en/master/
+fake = Faker() # Kept forgetting to add this in. Without this being called, Faker doesn't work.
 import csv
 # https://www.pythontutorial.net/python-basics/python-write-csv-file/
 header = ['Title','Author','Reading Status','Book Format','Location']
@@ -57,7 +61,13 @@ class book():
         self.location = location
 
     def __str__(self): # self printer
-            return f"Title: {self.Title} \nAuthor: {self.Author} \nLocation: {self.location}\nBook Format: {self.bookFormat}\nReading Status: {self.readingStatus}\nDate Published: {self.datePublished}\n"
+            return (
+                f"Title: {self.Title} \n"
+                f"Author: {self.Author} \n"
+                f"Location: {self.location}\n"
+                f"Book Format: {self.bookFormat}\n"
+                f"Reading Status: {self.readingStatus}\n"
+                f"Date Published: {self.datePublished}\n")
     
     def __iter__(self):
         for i in self._totalBook:
@@ -69,6 +79,20 @@ firstbook.setTitle = 'The Adventures of Huckleberry Finn'
 secondbook = book("Pride and Prejudice","Jane Austen")
 secondbook.setAuthor = 'Jane Austen'
 secondbook.setTitle = 'Pride and Prejudice'
+
+# Let's make some books using Faker!
+
+for i in range(9998): # Only 9998 because I already made two books above, and I want to keep them.
+    # Turns out "10KBooks" is not an approved variable? Can't start with an integer, so that was lame.
+    TenKbook = book(Title=fake.catch_phrase(), # Holy COW. This got long. Kept each element to a single line for readability.
+                    Author=fake.name(), # Creating an author
+                    datePublished=fake.date(), # Creating a date
+                    readingStatus=fake.random_element(elements=('Completed', 'In Progress', 'Not Started')), # Creating the reading status
+                    bookFormat=fake.random_element(elements=('Digital', 'Physical')), # Creating the book format
+                    location=fake.random_element(elements=('Home', 'Work', 'School', 'Other')) # Creating a location
+                 )
+
+
 
 # Open a CSV file for writing
 with open("Saved_BOOK.csv", 'w', encoding='UTF8', newline='') as f:
@@ -87,5 +111,7 @@ with open("Saved_BOOK.csv", 'w', encoding='UTF8', newline='') as f:
         })
 
 # Print the book information
+# While the above code saves the data to the preferred output (CSV) this print shows that information is being created.
+# It can be commented out, since all it does is read the output from the TenKbook lists.
 for i in book._totalBook:
     print(i)
