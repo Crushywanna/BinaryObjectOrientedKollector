@@ -1,6 +1,6 @@
 # Leaving room for the imports and any other comments
 #Created for a Rutgers University MBS Final
-
+#https://github.com/Crushywanna/BinaryObjectOrientedKollector
 
 # Shoutout to Sukhmeet Khalar (https://github.com/mithusingh32) for this idea. Way easier than randomly giving names to the books.
 from faker import Faker# https://faker.readthedocs.io/en/master/
@@ -102,7 +102,7 @@ with open("Saved_BOOK.csv", 'w', encoding='UTF8', newline='') as f:
 
     # Write data to the CSV file
     for i in book._totalBook:
-        writer.writerow({
+        writer.writerow({ # The braces really threw me off. I was trying to use brackets, and it was not working. Documentation saved me though.
             'Title': i.Title,
             'Author': i.Author,
             'Reading Status': i.readingStatus,
