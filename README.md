@@ -19,4 +19,9 @@ ACCOMPLISHED USING FAKER. 3) export each array to a row in an excel doc, where t
 
 Eventual TODOs:
 1) Add a prompt asking the user what they want
-2) A way to close the program without having to close the IDE or other interactions (similar to a "press Q to quit" function"
+   NAILED IT. After looking at several of the examples provided by Professor Sorensen, I went through my assignments from undergrad and found one that implemented a question tree for user input.
+     Ripped my tree straight from there.
+3) A way to close the program without having to close the IDE or other interactions (similar to a "press Q to quit" function"
+     Same as above, really.
+
+Several TODOs left in the program itself. I need to clean those up as well, but not really required for the Final Requirements.
