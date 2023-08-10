@@ -2,7 +2,7 @@
 #Created for a Rutgers University MBS Final
 #https://github.com/Crushywanna/BinaryObjectOrientedKollector
 
-# Shoutout to Sukhmeet Khalar (https://github.com/mithusingh32) for this idea. Way easier than randomly giving names to the books.
+# Shoutout to my friend Sukhmeet Khalar for this idea. He listened to me complain and showed me this instead. Way easier than randomly giving names to the books.
 from faker import Faker# https://faker.readthedocs.io/en/master/
 fake = Faker() # Kept forgetting to add this in. Without this being called, Faker doesn't work.
 import csv
@@ -69,7 +69,7 @@ while Runner:
     0: Exit / Quit
     1: List Books
     2: Enter a new book
-    3: Delete Book
+    3: Delete the last book
     """) # Triple Quotes to allow for multi-line prints
          
     Choice=input ("What would you like to do? ") 
@@ -146,8 +146,8 @@ while Runner:
 
 #The lines below are the error management lines
 #They prevent miskeys during the menu selection      
-     elif   Choice !="":
-      print ("\n Invalid Choice. Please try again or press 0 to exit: ")
-     elif Choice == "":
-      print ("you will now exit")
+    elif   Choice !="":
+        print ("\n Invalid Choice. Please try again or press 0 to exit: ")
+    elif Choice == "":
+        print ("you will now exit")
 print (" Program Finished")
