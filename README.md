@@ -10,9 +10,10 @@ A search function will need to be implemented
 After the initial backend draft is accomplished, I wouldn't mind looking for an amateur frontend developer to devise a GUI or other UX intended for generic users.
 
 Assignment TODOs:
-ACCOMPLISHED.             1) Assign each book to an array
-                                Need to print each array out into a table that can be iterated into the writerows command.
-ACCOMPLISHED.             2) Populate to 10k arrays
+
+ACCOMPLISHED. 1) Assign each book to an array
+                    Need to print each array out into a table that can be iterated into the writerows command.
+ACCOMPLISHED. 2) Populate to 10k arrays
 ACCOMPLISHED USING FAKER. 3) export each array to a row in an excel doc, where the columns are the function names (Title, Author, etc.)
 
 
