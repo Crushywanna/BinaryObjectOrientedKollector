@@ -25,3 +25,4 @@ Eventual TODOs:
      Same as above, really.
 
 Several TODOs left in the program itself. I need to clean those up as well, but not really required for the Final Requirements.
+Collection control is definitely a TODO.
