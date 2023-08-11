@@ -10,15 +10,52 @@ from BOOK_lib import *
 # https://www.pythontutorial.net/python-basics/python-write-csv-file/
 header = ['Title','Author','Reading Status','Book Format','Location']
 
-
 # I make all of the books first, since this is a demo of the software. I can't necessarily demo with no information.
 
+# I keep these above the Collection class because they are called into the collection as the default books.
 firstbook = book("The Adventures of Huckleberry Finn","Mark Twain")
 firstbook.setAuthor = 'Mark Twain'
 firstbook.setTitle = 'The Adventures of Huckleberry Finn'
 secondbook = book("Pride and Prejudice","Jane Austen")
 secondbook.setAuthor = 'Jane Austen'
 secondbook.setTitle = 'Pride and Prejudice'
+
+class Collection: # Creating an inherited class because the assignment directions mention that you were looking for inheritance specifically. 
+    #Unfortunately, I didn't plan for this originally and this isn't very good. I don't think it works as intended currently, and I don't have a method to call it using the tree.
+    def __init__(self, Title, groups):
+        self.Title = Title
+        self.groups = groups
+        self.groupCollection = []
+
+    def add_book(self, book):
+        self.groupCollection.append(book)
+
+    def CSVprinter(self, filename): # This is just copy and paste from below, because technically this is the last code to be created. Kinda weird adding it to a class though.
+        with open(filename, 'w', encoding='UTF8', newline='') as f: # I kinda hate this line. Because its a method, I had some difficulty pre-setting the CSV. Referenced Unit 5 to just...set it as a variable.
+            bookFields = ['Title', 'Author', 'datePublished', 'Reading Status', 'Book Format', 'Location', 'Groups']
+            writer = csv.DictWriter(f, fieldnames=bookFields)
+            writer.writeheader() # This line can mess up and just...hang the entire program? Not sure why. I keep fixing it by deleting and re-creating this line.
+                                 # Also, I find it funny that it uses the same header as above but still prints out the Groups column. Removing it stops the entire header from being created.
+                                 # My first "Don't delete that or it breaks things" line of code!
+
+            for book in self.groupCollection:
+                writer.writerow({
+                    'Title': book.Title,
+                    'Author': book.Author,
+                    'datePublished': book.datePublished,
+                    'Reading Status': book.readingStatus,
+                    'Book Format': book.bookFormat,
+                    'Location': book.location,
+                    'Groups': self.groups
+                })
+
+# Create a Default Collection
+savedGroup = Collection("My Default Group", "General")
+
+# Add books to the collection - I just use the 2 books I create by default. It's possible to add more, just by calling the add_book from above.
+savedGroup.add_book(firstbook)
+savedGroup.add_book(secondbook)
+savedGroup.CSVprinter("Saved_GROUPS.csv") # Guess I'll call it this. It's similar to the other one, which I liked.
 
 # Let's make some books using Faker!
 
@@ -39,7 +76,7 @@ for i in range(18): # Only 18 because I already made two books above, and I want
 with open("Saved_BOOK.csv", 'w', encoding='UTF8', newline='') as f:
     bookFields = ['Title', 'Author', 'datePublished','Reading Status', 'Book Format', 'Location']
     writer = csv.DictWriter(f, fieldnames=bookFields)
-    writer.writeheader()
+    writer.writeheader() # This line can mess up and just...hang the entire program? Not sure why. I keep fixing it by deleting and re-creating this line.
 
     # Write data to the CSV file
     for i in book._totalBook:
@@ -70,6 +107,7 @@ while Runner:
     1: List Books
     2: Enter a new book
     3: Delete the last book
+    4: Add a book to a group
     """) # Triple Quotes to allow for multi-line prints
          
     Choice=input ("What would you like to do? ") 
@@ -144,6 +182,14 @@ while Runner:
             print ("There are no books to delete.")
             print ("Please add a book before trying to delete one.")
 
+    elif Choice=="4":
+        print("""
+====================================
+   Adding a book to a group
+====================================""")
+        print ("Unfortunately, this feature is not available in the demo")
+        print ("We hope to make this feature a reality before the full release of BOOK")
+        print ("Sending you back to the main menu")
 #The lines below are the error management lines
 #They prevent miskeys during the menu selection      
     elif   Choice !="":
