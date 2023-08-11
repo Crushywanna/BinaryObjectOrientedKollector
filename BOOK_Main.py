@@ -1,6 +1,6 @@
 # Leaving room for the imports and any other comments
 #Created for a Rutgers University MBS Final
-#https://github.com/Crushywanna/BinaryObjectOrientedKollector
+#https://github.com/Crushywanna/BinaryObjectOrientedKollector to be open to the public Aug 13.
 
 # Shoutout to my friend Sukhmeet Khalar for this idea. He listened to me complain and showed me this instead. Way easier than randomly giving names to the books.
 from faker import Faker# https://faker.readthedocs.io/en/master/

@@ -1,5 +1,6 @@
 # Actual program for the book library
 # Called in BOOK_Main.py
+#https://github.com/Crushywanna/BinaryObjectOrientedKollector to be open to the public Aug 13.
 
 # Remember!  == for comparison , = for assigning
 class book():
@@ -59,6 +60,6 @@ class book():
                 f"Reading Status: {self.readingStatus}\n"
                 f"Date Published: {self.datePublished}\n")
     
-    def __iter__(self):
+    def __iter__(self): # I made this and I think I deleted the code that called it? Idk, keeping it.
         for i in self._totalBook:
             yield i
